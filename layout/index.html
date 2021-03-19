@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://locomotivemtl.github.io/locomotive-scroll/dist/styles/main.css">
+    <style>
+        .shape {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        div{
+            border: solid 1px red;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shape">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 810" preserveAspectRatio="xMinYMin slice">
+            <path fill="#dfc7c1"
+                d="M592.66 0c-15 64.092-30.7 125.285-46.598 183.777C634.056 325.56 748.348 550.932 819.642 809.5h419.672C1184.518 593.727 1083.124 290.064 902.637 0H592.66z">
+            </path>
+            <path fill="#b2d9ea"
+                d="M545.962 183.777c-53.796 196.576-111.592 361.156-163.49 490.74 11.7 44.494 22.8 89.49 33.1 134.883h404.07c-71.294-258.468-185.586-483.84-273.68-625.623z">
+            </path>
+            <path fill="#f4dcd6"
+                d="M153.89 0c74.094 180.678 161.088 417.448 228.483 674.517C449.67 506.337 527.063 279.465 592.56 0H153.89z">
+            </path>
+            <path fill="#b2d9ea" d="M153.89 0H0v809.5h415.57C345.477 500.938 240.884 211.874 153.89 0z"></path>
+            <path fill="#b2d9ea"
+                d="M1144.22 501.538c52.596-134.583 101.492-290.964 134.09-463.343 1.2-6.1 2.3-12.298 3.4-18.497 0-.2.1-.4.1-.6 1.1-6.3 2.3-12.7 3.4-19.098H902.536c105.293 169.28 183.688 343.158 241.684 501.638v-.1z">
+            </path>
+            <path fill="#b2d9ea"
+                d="M1285.31 0c-2.2 12.798-4.5 25.597-6.9 38.195C1321.507 86.39 1379.603 158.98 1440 257.168V0h-154.69z">
+            </path>
+            <path fill="#b2d9ea"
+                d="M1278.31,38.196C1245.81,209.874 1197.22,365.556 1144.82,499.838L1144.82,503.638C1185.82,615.924 1216.41,720.211 1239.11,809.6L1439.7,810L1439.7,256.768C1379.4,158.78 1321.41,86.288 1278.31,38.195L1278.31,38.196z">
+            </path>
+        </svg>
+    </div>
+    <div class="book_now">
+        <div class="name_cinema">
+            <p>vintage Cinema</p>
+        </div>
+        <form action="">
+            <div class="form_booking">
+                <select name="" id="">
+                    <option value="">Chọn phim</option>
+                    <option value="">phim 1</option>
+                    <option value="">phim 2</option>
+                    <option value="">phim 3</option>
+                </select>
+                <select name="" id="">
+                    <option value="">Chọn rap</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                <select name="" id="">
+                    <option value="">Chọn ngày</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                <select name="" id="">
+                    <option value="">Chọn suất</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+            <button>Đặt vé ngay</button>
+        </form>
+    </div>
+    <div class="book_now_mobile">
+        <div class="name_cinema" onclick="open_close_book_now_mobile(0)">
+            <p>booking now <i class="fa fa-caret-up"></i></p>
+        </div>
+        <div class="form_booking">
+            <select name="" id="">
+                <option value="">Chọn phim</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <select name="" id="">
+                <option value="">Chọn rap</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <select name="" id="">
+                <option value="">Chọn ngày</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <select name="" id="">
+                <option value="">Chọn suất</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+        <button>Đặt vé ngay</button>
+    </div>
+    <div class="menu">
+        <div class="icon_menu">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="web">
+            <p>www.vintagecinema.vn</p>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo3.png" alt=""></a>
+        </div>
+        <div class="name_cinema">
+            <p> vintage cinema</p>
+        </div>
+    </div>
+    <div class="menu_mobile">
+        <div class="icon_menu_mobile">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="logo_mobile">
+            <img src="img/logo3.png" alt="">
+        </div>
+    </div>
+    <div class="warp" id="js-scroll" data-scroll-container data-horizontal="true"
+        onclick="open_close_book_now_mobile(1)">
+        <section data-scroll-section style="opacity: 1;">
+            <div class="left" style="background-image: url(img/co.jpg);">
+
+            </div>
+            <div class="right">
+                <div class="title">
+                    <p> TẤT CẢ HẠNG MỤC</p>
+                </div>
+                <div class="vintage_cinema">
+                    <img src="img/vintage3.jpg" alt="">
+                </div>
+                <div class="list">
+                    <div>
+                        <p>20 phim</p>
+                        <p><a href="#nowshowing">Phim đang chiếu</a></p>
+                    </div>
+                    <div>
+                        <p>10 phim</p>
+                        <p><a href="#commingsoon">Phim sắp chiếu</a></p>
+                    </div>
+                    <div>
+                        <p>20 tin</p>
+                        <p>Tin khuyến mãi</p>
+
+                    </div>
+                    <div>
+                        <p>10 phim</p>
+                        <p>Phim sắp chiếu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section data-scroll-section>
+            <div data-scroll data-scroll-speed="1" class="box_title">
+                <p> Now showing</p>
+                <p>Vintage Cinema</p>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>Sau thành công của web-drama, Trấn Thành đã thừa thắng xông lên, hợp tác với đạo diễn Vũ Ngọc
+                        Đãng, biên kịch Nhi Bùi để thực hiện phiên bản điện ảnh của Bố Già. Cùng với Trấn Thành, các
+                        nhân vật còn lại vẫn tiếp tục được đảm nhiệm bởi các gương mặt đã từng xuất hiện trong phiên bản
+                        đầu tiên là NSND Ngọc Giàu, Tuấn Trần, Lê Giang… </p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/rangkiem.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/luadao.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/rangkiem.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/trangti.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/luadao.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+        </section>
+        <section data-scroll-section>
+            <div data-scroll data-scroll-speed="1" class="box_title">
+                <p>Coming soon</p>
+                <p>Vintage Cinema</p>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>Lý Lệ Hà (NSND Lê Khanh), Lý Lệ Hồng (NSND Hồng Vân) và Lý Linh (Kaity Nguyễn) là ba chị em Lý
+                        gia sang chảnh và quyền lực. Dòng họ Lý ở trong Bạch Trà viên xa hoa lộng lẫy, với đầy cổ vật có
+                        giá trị “gấp mấy lần siêu xe”. Bảo vật của gia tộc này là chiếc Phượng bào “Phượng hoàng tam
+                        vĩ”, khiến tất cả nhân vật không tiếc mọi thứ mọi thủ đoạn chiếm đoạt.</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/rangkiem.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/luadao.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/rangkiem.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/trangti.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/luadao.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_img">
+                    <img src="img/cauvang.jpg" alt="">
+                </div>
+                <div class="box_info">
+                    <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
+                    <p>chị Mười Ba: 3 Ngày Sinh Tử vẫn khai thác đề tài Giang Hồ nhưng sẽ chứa đựng nội dung hấp vẫn và
+                        “gai góc” hơn phần 1 nhờ cốt...</p>
+                    <a href="detail.html">View detail</a>
+                </div>
+            </div>
+        </section>
+        <footer data-scroll-section>
+            <p><span>Vintage Cinema</span> là một trong những công ty tư nhân đầu tiên về điện ảnh được thành lập từ năm
+                2003, đã
+                khẳng định thương hiệu là 1 trong 10 địa điểm vui chơi giải trí được yêu thích nhất. Ngoài hệ thống rạp
+                chiếu phim hiện đại, thu hút hàng triệu lượt người đến xem, <span>Vintage Cinema</span> còn hấp dẫn khán
+                giả bởi không
+                khí thân thiện cũng như chất lượng dịch vụ hàng đầu.
+
+            </p>
+            <p>Đến website galaxycine.vn, quý khách sẽ được cập nhật nhanh chóng các phim hay nhất phim mới nhất đang
+                chiếu hoặc sắp chiếu. Lịch chiếu tại mọi hệ thống rạp chiếu phim của <span>Vintage Cinema</span> cũng
+                được cập nhật
+                đầy đủ hàng ngày hàng giờ trên trang chủ.
+
+            </p>
+            <p>Đặt vé tại <span>Vintage Cinema</span> dễ dàng chỉ sau vài thao tác vô cùng đơn giản. Để mua vé, hãy vào
+                tab Mua vé.
+                Quý khách có thể chọn Mua vé theo phim, theo rạp, theo ngày tùy cách nào tiện lợi nhất cho bản thân.Sau
+                đó, tiến hành mua vé theo các bước hướng dẫn. Chỉ trong vài phút, quý khách sẽ nhận được tin nhắn và
+                email phản hồi Đặt vé thành công của <span>Vintage Cinema</span>. Quý khách có thể dùng tin nhắn lấy vé
+                tại quầy vé
+                của <span>Vintage Cinema</span> hoặc quét mã QR để một bước vào rạp mà không cần tốn thêm bất kỳ công
+                đoạn nào nữa.
+
+            </p>
+            <p>Nếu bạn đã chọn được phim hay để xem, hãy đặt vé cực nhanh bằng box Mua Vé Nhanh ngay từ Trang Chủ. Chỉ
+                cần một phút, tin nhắn và email phản hồi của <span>Vintage Cinema</span> sẽ gửi ngay vào điện thoại và
+                hộp mail của
+                bạn.
+
+            </p>
+            <p>Nếu chưa quyết định sẽ xem phim mới nào, hãy tham khảo các bộ phim hay trong mục Phim Đang Chiếu cũng như
+                Phim Sắp Chiếu tại rạp chiếu phim bằng cách vào mục Bình Luận Phim ở Góc Điện Ảnh để đọc những bài bình
+                luận chân thật nhất, tham khảo và cân nhắc. Sau đó, quý khách hãy đặt vé bằng box Mua Vé Nhanh ngay ở
+                đầu trang để chọn được suất chiếu và chỗ ngồi vừa ý nhất.
+
+            </p>
+            <p><span>Vintage Cinema</span> luôn có những chương trình khuyến mãi, ưu đãi, quà tặng vô cùng hấp dẫn như
+                giảm giá vé,
+                tặng vé xem phim miễn phí, tặng Combo, tặng quà phim… dành cho quý khách.
+
+            </p>
+            <p><span>Vintage Cinema</span> luôn có những chương trình khuyến mãi, ưu đãi, quà tặng vô cùng hấp dẫn như
+                giảm giá vé,
+                tặng vé xem phim miễn phí, tặng Combo, tặng quà phim… dành cho quý khách.
+
+            </p>
+            <p>Trang web galaxycine.vn còn có mục Góc Điện Ảnh - sở hữu lượng dữ liệu về phim, diễn viên và đạo diễn,
+                giúp quý khách dễ dàng chọn được phim mình yêu thích và nâng cao kiến thức về điện ảnh của bản thân.
+                Ngoài ra, vào mỗi tháng, <span>Vintage Cinema</span> cũng giới thiệu các phim sắp chiếu hot nhất trong
+                mục Phim Hay
+                Tháng để quý khách sớm có sự tính toán.
+
+            </p>
+        </footer>
+    </div>
+    <script src="https://locomotivemtl.github.io/locomotive-scroll/dist/scripts/main.js"></script>
+    <script>
+        var warp = document.querySelector(".warp");
+        function open_close_book_now_mobile(x) {
+            const menu = document.getElementsByClassName("book_now_mobile");
+            console.log(menu[0].getBoundingClientRect())
+            if (menu[0].getBoundingClientRect().y > 400) {
+                if (x == 1) {
+                    console.log(1);
+                    return;
+                }
+                menu[0].style.bottom = 0;
+                menu[0].children[0].children[0].innerHTML = "Vintage Cinema <i class='fa fa-sort-down'></i>";
+                warp.style.filter = `blur(6px)`;
+            } else {
+                console.log(2);
+                menu[0].style.bottom = -295 + "px";
+                menu[0].children[0].children[0].innerHTML = "Booking Now <i class='fa fa-sort-up'></i>";
+                warp.style.filter = `blur(0px)`;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
