@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-vintage-cinema"
+    }
+  },
+  "defaultProject": "front-end-vintage-cinema",
+  "cli": {
+    "analytics": "aa2bc6fe-4e2e-437a-95e0-c37b850a65df"
+  }
 }
