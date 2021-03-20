@@ -1,40 +1,18 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fontend - cinema</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://locomotivemtl.github.io/locomotive-scroll/dist/styles/main.css">
+
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://locomotivemtl.github.io/locomotive-scroll/dist/styles/main.css">
 </head>
+
 <body>
   <app-root></app-root>
 </body>
- <!--/page-->
- <script src="https://locomotivemtl.github.io/locomotive-scroll/dist/scripts/main.js"></script>
- <script>
-     var warp = document.querySelector(".warp");
-     function open_close_book_now_mobile(x) {
-         const menu = document.getElementsByClassName("book_now_mobile");
-         console.log(menu[0].getBoundingClientRect())
-         if (menu[0].getBoundingClientRect().y > 400) {
-             if (x == 1) {
-                 console.log(1);
-                 return;
-             }
-             menu[0].style.bottom = 0;
-             menu[0].children[0].children[0].innerHTML = "Vintage Cinema <i class='fa fa-sort-down'></i>";
-             warp.style.filter = `blur(6px)`;
-         } else {
-             console.log(2);
-             menu[0].style.bottom = -295 + "px";
-             menu[0].children[0].children[0].innerHTML = "Booking Now <i class='fa fa-sort-up'></i>";
-             warp.style.filter = `blur(0px)`;
-         }
-     }
 
-
- </script>
 </html>
