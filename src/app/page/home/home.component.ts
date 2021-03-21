@@ -8,7 +8,6 @@ import LocomotiveScroll from 'locomotive-scroll';
 })
 export class HomeComponent implements OnInit {
   scroll;
-  Datahorizontal: true;
   constructor() { }
 
   ngOnInit(): void {
