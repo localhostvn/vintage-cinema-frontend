@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-shape',
+  selector: 'block-shape',
   templateUrl: './shape.component.html',
   styleUrls: ['./shape.component.css']
 })

@@ -3,27 +3,16 @@
         <div class="container">
             <div class="movie">
                 <div class="name">
-                    CHỊ MƯỜI BA: 3 NGÀY SINH TỬ
+                   {{data[0].name}}
                 </div>
                 <div class="content">
-                    Lý Lệ Hà (NSND Lê Khanh), Lý Lệ Hồng (NSND Hồng Vân) và Lý Linh (Kaity Nguyễn) là ba chị em Lý
-                    gia sang chảnh và quyền lực. Dòng họ Lý ở trong Bạch Trà viên xa hoa lộng lẫy, với đầy cổ vật có
-                    giá trị “gấp mấy lần siêu xe”. Bảo vật của gia tộc này là chiếc Phượng bào “Phượng hoàng tam
-                    vĩ”, khiến tất cả nhân vật không tiếc mọi thứ mọi thủ đoạn chiếm đoạt. Cô em út Lý Linh đang
-                    thăng tiến trong công việc. Ấy vậy mà, với cô điều ấy là chưa đủ. Mục tiêu của nữ cường nhân mới
-                    25 tuổi này là ngồi lên chiếc ghế quyền lực tại tòa tháp Đế Vương. Thiếu gia họ Quách “câu” cô
-                    nàng bằng cách hứa hẹn một tương lai tươi sáng, để Lý Linh trở thành “Mị Châu” đem chiếc Phượng
-                    bào mà cha anh ta sẵn sàng đánh đổi bằng cả tòa tháp về cho mình. Tuy nhiên, Lý Linh khó thể
-                    thành công khi người đang sở hữu báu vật ấy là cô chị cả Lý Lệ Hà – nhà sưu tập cổ vật hoàng
-                    cung thông minh và sắc sảo. Mọi chuyện càng trở nên rắc rối hơn khi Lệ Hà lại chính là tình nhân
-                    bí mật của ông chủ nhà họ Quách. Ngoài ra, dù Lý Lệ Hồng và cậu trai trẻ Jonathan Vĩnh Thuỵ mang
-                    vẻ ngoài vô hại dường như cũng có mưu tính sâu xa.
+                    {{data[0].description}}
                 </div>
                 <div class="info">
-                    <p><span>IMDb</span> 7.0 </p>
-                    <p>1h 50min</p>
-                    <p>Action Comdy</p>
-                    <p>18 december 2018(VN)</p>
+                    <p><span>IMDb</span> {{data[0].point}} </p>
+                    <p>{{data[0].duration}}</p>
+                    <p>{{data[0].category}}</p>
+                    <p>{{data[0]["date-start"]}}</p>
                 </div>
                 <div class="show-setup">
                     <div class="date">
@@ -258,25 +247,28 @@
                             </div>
                             <div class="row-seat">
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
+                                </div>
+                                <div>
+                                    <input class="checked" type="checkbox">
                                 </div>
                                 <div>
                                     <input class="checked" type="checkbox">
@@ -285,10 +277,7 @@
                                     <input class="checked" type="checkbox">
                                 </div>
                                 <div>
-                                    <input class="checked" type="checkbox" >
-                                </div>
-                                <div>
-                                    <input class="checked" type="checkbox" >
+                                    <input class="checked" type="checkbox">
                                 </div>
                                 <div>
                                     <input class="checked" type="checkbox">
@@ -399,13 +388,13 @@
                             </div>
                             <div class="row-seat">
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
-                                    <input type="checkbox" >
+                                    <input type="checkbox">
                                 </div>
                                 <div>
                                     <input type="checkbox">
@@ -544,7 +533,7 @@
             </div>
             <div class="poster">
                 <div class="box-img">
-                    <img src="../assets/img/cauvang.jpg" alt="">
+                    <img src="{{data[0].img}}" alt="">
                 </div>
                 <div class="info">
                     <p>Selected seat</p>
@@ -575,5 +564,5 @@
             </div>
         </div>
     </section>
-    <app-footer></app-footer>
+   
 </div>

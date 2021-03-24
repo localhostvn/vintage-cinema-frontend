@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Data } from '@angular/router';
 import LocomotiveScroll from 'locomotive-scroll';
+import { movie } from "../../service/movie.service";
 
 @Component({
   selector: 'page-home',
@@ -8,14 +10,31 @@ import LocomotiveScroll from 'locomotive-scroll';
 })
 export class HomeComponent implements OnInit {
   scroll;
-  constructor() { }
+  data_nowshowing: any;
+  data_commingsoon: any;
+  constructor(private movie: movie) { 
+    
+  }
+
 
   ngOnInit(): void {
+    this.movie.get_movie_nowshowing().subscribe((data) => {
+      this.data_nowshowing = data;
+    });
+    this.movie.get_movie_commingsoon().subscribe((data) => {
+      this.data_commingsoon = data;
+    });
+    
+    
+  }
+  ngAfterViewInit(): void {
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       direction: 'horizontal',
       smooth: true
     });
   }
-
+ 
+  
+ 
 }
