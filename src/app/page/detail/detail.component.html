@@ -1,78 +1,54 @@
 <div class="warp warp-detail" id="js-scroll" data-scroll-container>
-    <section class="section-detail">
+    <section  class="section-detail">
         <div class="container">
             <div class="movie">
                 <div class="name">
-                   {{data[0].name}}
+                    {{data_film_detail[0].name}}
                 </div>
                 <div class="content">
-                    {{data[0].description}}
+                    {{data_film_detail[0].description}}
                 </div>
                 <div class="info">
-                    <p><span>IMDb</span> {{data[0].point}} </p>
-                    <p>{{data[0].duration}}</p>
-                    <p>{{data[0].category}}</p>
-                    <p>{{data[0]["date-start"]}}</p>
+                    <p><span>IMDb</span> {{data_film_detail[0].point}} </p>
+                    <p>{{data_film_detail[0].duration}}</p>
+                    <p>{{data_film_detail[0].category}}</p>
+                    <p>{{data_film_detail[0]["date-start"]}}</p>
                 </div>
                 <div class="show-setup">
                     <div class="date">
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <span>mon</span>
+                        <div *ngFor="let item of data_date" (click)="choose_date(item.id_date)">
+                            <p>{{item.date}}</p>
+                            <span>{{item.day}}</span>
                         </div>
                     </div>
                     <div class="cinema">
                         <form action="">
                             <div class="box-show">
                                 <p>cinema</p>
-                                <select name="" id="">
-                                    <option value="">cinema thanh phong</option>
-                                    <option value="">1</option>
-                                    <option value="">1</option>
+                                <select (change)="choose_cinema(cinema.value)" #cinema name="" id="">
+                                    <ng-container *ngIf="!data_cinema; else elseTemplate_cinema">
+                                        <option value="">Choose cinema</option>
+                                    </ng-container>
+                                    <ng-template #elseTemplate_cinema>
+                                        <option value="">Choose cinema</option>
+                                        <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">
+                                            {{item.name}}</option>
+                                    </ng-template>
+
                                 </select>
+
                             </div>
                             <div class="box-show">
                                 <p>time</p>
-                                <select name="" id="">
-                                    <option value="">12:30</option>
-                                    <option value="">1</option>
-                                    <option value="">1</option>
+                                <select (change)="choose_show(show.value)" #show name="" id="">
+                                    <ng-container *ngIf="!data_show; else elseTemplate_show">
+                                        <option value="">Choose show</option>
+                                    </ng-container>
+                                    <ng-template #elseTemplate_show>
+                                        <option value="">Choose show</option>
+                                        <option *ngFor="let item of data_show" value="{{item.id_show}}">{{item.time}}
+                                        </option>
+                                    </ng-template>
                                 </select>
                             </div>
                         </form>
@@ -93,439 +69,33 @@
                     </div>
                     <div class="seat">
                         <div class="row">
-                            <div>A</div>
-                            <div>n</div>
-                            <div>c</div>
-                            <div>d</div>
-                            <div>e</div>
-                            <div>f</div>
-                            <div>g</div>
-                            <div>h</div>
-                            <div>l</div>
+                            <ng-container *ngIf="!data_show; else elseTemplate_row">
+                                
+                            </ng-container>
+                            <ng-template #elseTemplate_row>
+                                <div *ngFor="let item of data_row">{{item.name}}</div>
+                            </ng-template>
                         </div>
                         <div class="box-seat">
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input class="checked" type="checkbox">
-                                </div>
-                                <div>
-                                    <input class="checked" type="checkbox">
-                                </div>
-                                <div>
-                                    <input class="checked" type="checkbox">
-                                </div>
-                                <div>
-                                    <input class="checked" type="checkbox">
-                                </div>
-                                <div>
-                                    <input class="checked" type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                            </div>
-                            <div class="row-seat">
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
-                                <div>
-                                    <input type="checkbox">
-                                </div>
+                            <div *ngFor="let item of data_row" class="row-seat">
+                                <ng-container *ngFor="let item_seat of data_seat">
+                                    <ng-container *ngIf="item_seat['id_row']==item['id_row']; else elseTemplate_seat">
+                                        <ng-container *ngIf="item_seat['checked'] == 1; else elseTemplate_checked">
+                                            <div>
+                                                <input class="checked" type="checkbox">
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #elseTemplate_checked>
+                                            <div>
+                                                <input (click)="choose_seat([item_seat['id_seat'],item_seat['name'],item['name']])" #seat type="checkbox" value="{{item_seat['id_seat']}}">
+                                            </div>
+                                        </ng-template>
+                                    </ng-container>
+                                    <ng-template #elseTemplate_seat>
+                                        
+                                    </ng-template>
+                                </ng-container>
+                                
                             </div>
                         </div>
                     </div>
@@ -533,7 +103,7 @@
             </div>
             <div class="poster">
                 <div class="box-img">
-                    <img src="{{data[0].img}}" alt="">
+                    <img src="{{data_film_detail[0].img}}" alt="">
                 </div>
                 <div class="info">
                     <p>Selected seat</p>
@@ -541,21 +111,13 @@
                         <p>selection</p>
                         <p>price</p>
                     </div>
-                    <div>
-                        <p>Row A seat 12</p>
-                        <p>200.000 VND</p>
-                    </div>
-                    <div>
-                        <p>Row A seat 12</p>
-                        <p>200.000 VND</p>
-                    </div>
-                    <div>
-                        <p>Row A seat 12</p>
-                        <p>200.000 VND</p>
+                    <div *ngFor="let item of id_seat">
+                        <p>Row {{item[2]}} seat {{item[1]}}</p>
+                        <p>{{price / 1000}}.000 VND</p>
                     </div>
                     <div class="total">
                         <p>Total</p>
-                        <p><span>300.000 VND</span></p>
+                        <p *ngIf="id_seat"><span>{{(id_seat.length * price)/1000}}.000 VND</span></p>
                     </div>
                     <div>
                         <a href="/pay">Thanh toán</a>
@@ -564,5 +126,5 @@
             </div>
         </div>
     </section>
-   
+    <block-footer></block-footer>
 </div>

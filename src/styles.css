@@ -129,7 +129,7 @@
 }
 }
   
-  
+
 body {
   margin: 0;
   padding: 0;
@@ -500,8 +500,11 @@ section .box .box_info p:nth-child(2)::first-letter{
   padding-left: 3px;
 }
 section .box .box_info p:first-child{
-   font-size: 20px;
-   border-bottom: solid 1px gray;
+  font-size: 20px;
+  border-bottom: solid 1px gray;
+  max-height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 section .box .box_info a{
   margin-top: 10px;

@@ -12,9 +12,11 @@ export class HomeComponent implements OnInit {
   scroll;
   data_nowshowing: any;
   data_commingsoon: any;
-  constructor(private movie: movie) { 
-    
+
+  constructor(private movie: movie) {
+
   }
+
 
 
   ngOnInit(): void {
@@ -24,17 +26,35 @@ export class HomeComponent implements OnInit {
     this.movie.get_movie_commingsoon().subscribe((data) => {
       this.data_commingsoon = data;
     });
-    
-    
-  }
-  ngAfterViewInit(): void {
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       direction: 'horizontal',
-      smooth: true
+      smooth: true,
+      reloadOnContextChange:true,
     });
+    console.log('ngOnInit')
   }
- 
-  
- 
+
+  ngDoCheck() {
+    // console.log('docheck')
+  }
+  ngAfterContentInit(): void {
+    // console.log('ngAfterContentInit')
+    
+  }
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      // console.log('ngAfterViewInit')
+      this.scroll.update()
+    }, 500);
+  }
+  ngAfterViewChecked(): void {
+    // console.log('ngAfterViewChecked')
+  }
+
+
+
+
+
+
 }

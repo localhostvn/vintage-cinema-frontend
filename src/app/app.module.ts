@@ -10,8 +10,13 @@ import { FooterComponent } from './block/footer/footer.component';
 import { HomeComponent } from './page/home/home.component';
 import { PayComponent } from './page/pay/pay.component';
 import { DetailComponent } from './page/detail/detail.component';
+import { loginComponent } from "./page/login/login.component";
 //model
 import { HttpClientModule } from "@angular/common/http";
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
+//gruade
+import { AuthGuard } from "./guards/auth.guard";
 
 //service
 import { movie } from "./service/movie.service";
@@ -25,14 +30,35 @@ import { movie } from "./service/movie.service";
     FooterComponent,
     HomeComponent,
     PayComponent,
-    DetailComponent
+    DetailComponent,
+    loginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [movie],
+  providers: [movie,
+    AuthGuard,
+     {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            '529400434677-699tmffb8eo3egbqtrb2auem7gaueef7.apps.googleusercontent.com'
+          )
+        },
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('3790038164399402')
+        }
+      ]
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

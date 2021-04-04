@@ -1,6 +1,6 @@
-<block-shape></block-shape>
+
 <block-book></block-book>
-<div class="warp" id="js-scroll" data-scroll-container data-horizontal="true" onclick="open_close_book_now_mobile(1)">
+<div class="warp" data-scroll-container onclick="open_close_book_now_mobile(1)">
     <section data-scroll-section style="opacity: 1;">
         <div class="left" style="background-image: url(../assets/img/co.jpg);">
 
@@ -34,7 +34,7 @@
         </div>
     </section>
     <section data-scroll-section>
-        <div data-scroll data-scroll-speed="1" class="box_title">
+        <div class="box_title">
             <p> Now showing</p>
             <p>Vintage Cinema</p>
         </div>
@@ -51,25 +51,23 @@
 
     </section>
     <section data-scroll-section>
-        <div data-scroll data-scroll-speed="1" class="box_title">
+        <div class="box_title">
             <p>Coming soon</p>
             <p>Vintage Cinema</p>
         </div>
-        <div *ngFor="let item of data_commingsoon" class="box">
-            <div class="box_img">
-                <img src="{{item.img}}" alt="">
+        <ng-container #tagBlock *ngFor="let item of data_commingsoon">
+            <div class="box">
+                <div class="box_img">
+                    <img src="{{item.img}}" alt="">
+                </div>
+                <div class="box_info">
+                    <p>{{item.name}}</p>
+                    <p>{{item.description}}</p>
+                    <a [routerLink]="[ '/detail', item.id_film ]">View detail</a>
+                </div>
             </div>
-            <div class="box_info">
-                <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
-                <p>Lý Lệ Hà (NSND Lê Khanh), Lý Lệ Hồng (NSND Hồng Vân) và Lý Linh (Kaity Nguyễn) là ba chị em Lý
-                    gia sang chảnh và quyền lực. Dòng họ Lý ở trong Bạch Trà viên xa hoa lộng lẫy, với đầy cổ vật có
-                    giá trị “gấp mấy lần siêu xe”. Bảo vật của gia tộc này là chiếc Phượng bào “Phượng hoàng tam
-                    vĩ”, khiến tất cả nhân vật không tiếc mọi thứ mọi thủ đoạn chiếm đoạt.</p>
-                <a [routerLink]="[ '/detail', item.id_film ]">View detail</a>
-            </div>
-        </div>
-
+        </ng-container>
     </section>
-    <block-footer></block-footer>
+    <block-footer data-scroll-section></block-footer>
 </div>
 <!--/page-->

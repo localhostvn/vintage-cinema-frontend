@@ -4,32 +4,24 @@
     </div>
     <form action="">
         <div class="form_booking">
-            <select name="" id="">
+            <select (change)="choose_film(film.value)" #film name="" id="">
                 <option value="">Chọn phim</option>
-                <option value="">phim 1</option>
-                <option value="">phim 2</option>
-                <option value="">phim 3</option>
+                <option *ngFor="let item of data_nowshowing" value="{{item.id_film}}">{{item.name}}</option>
             </select>
-            <select name="" id="">
+            <select (change)="choose_cinema(cinema.value)" #cinema name="" id="">
                 <option value="">Chọn rap</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">{{item.name}}</option>
             </select>
-            <select name="" id="">
+            <select (change)="choose_date(date.value)" #date name="" id="">
                 <option value="">Chọn ngày</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option *ngFor="let item of data_date" value="{{item.id_date}}">{{item.day}}( {{item.date}} )</option>
             </select>
             <select name="" id="">
                 <option value="">Chọn suất</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option *ngFor="let item of data_show" value="{{item.id_show}}">{{item.time}}</option>
             </select>
         </div>
-        <button>Đặt vé ngay</button>
+        <a [routerLink]="[ '/detail', id_film ]"><button>Đặt vé ngay</button></a>
     </form>
 </div>
 <div class="book_now_mobile">
@@ -37,30 +29,22 @@
         <p>booking now <i class="fa fa-caret-up"></i></p>
     </div>
     <div class="form_booking">
-        <select name="" id="">
+        <select (change)="choose_film(film.value)" #film name="" id="">
             <option value="">Chọn phim</option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option *ngFor="let item of data_nowshowing" value="{{item.id_film}}">{{item.name}}</option>
         </select>
-        <select name="" id="">
+        <select (change)="choose_cinema(cinema.value)" #cinema name="" id="">
             <option value="">Chọn rap</option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">{{item.name}}</option>
         </select>
-        <select name="" id="">
+        <select (change)="choose_date(date.value)" #date name="" id="">
             <option value="">Chọn ngày</option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option *ngFor="let item of data_date" value="{{item.id_date}}">{{item.day}}( {{item.date}} )</option>
         </select>
         <select name="" id="">
             <option value="">Chọn suất</option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option *ngFor="let item of data_show" value="{{item.id_show}}">{{item.time}}</option>
         </select>
     </div>
-    <button>Đặt vé ngay</button>
+   <a [routerLink]="[ '/detail', id_film ]"><button>Đặt vé ngay</button></a>
 </div>
