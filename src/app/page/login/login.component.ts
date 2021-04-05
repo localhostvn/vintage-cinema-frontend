@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import LocomotiveScroll from "locomotive-scroll";
-import { SocialAuthService,FacebookLoginProvider,GoogleLoginProvider, SocialUser } from "angularx-social-login";
+import {SocialUser } from "angularx-social-login";
+import { loginService } from "../../service/login.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,34 +13,32 @@ export class loginComponent implements OnInit {
     scroll;
     user:SocialUser;
     loggedIn:boolean;
-    constructor(private authService:SocialAuthService,private router: Router,) { }
-    sign_with_google(){
-      this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-      this.authService.authState.subscribe((res)=>{
+    constructor(private login:loginService,private router: Router,) { }
+    set_login(res){
         this.user = res;
         this.loggedIn = (res != null);
         localStorage.setItem('currentUser',JSON.stringify(this.user));
         this.router.navigate(['/']);
-      })
+    }
+    sign_with_google(){
+      this.login.sign_with_google().subscribe((res)=>{
+        this.set_login(res);
+      });
     }
     sign_with_facebook(){
-      this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-      this.authService.authState.subscribe((res)=>{
-        this.user = res;
-        this.loggedIn = (res != null);
-        localStorage.setItem('currentUser',JSON.stringify(this.user));
-        this.router.navigate(['/']);
-      })
+      this.login.sign_with_facebook().subscribe((res)=>{
+        this.set_login(res);
+      });
     }
     sign_out(){
 
     }
     ngOnInit(): void {
-      this.authService.authState.subscribe((res)=>{
-        this.user = res;
-        this.loggedIn = (res != null);
-        console.log(this.user);
-      })
+      // this.login.auth_state().subscribe((res)=>{
+      //   this.user = res;
+      //   this.loggedIn = (res != null);
+      //   console.log(this.user);
+      // });
      }
     ngAfterViewInit(): void {
         this.scroll = new LocomotiveScroll({

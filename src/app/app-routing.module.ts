@@ -7,10 +7,10 @@ import { loginComponent } from "./page/login/login.component";
 import { AuthGuard } from "./guards/auth.guard";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent},
   { path: 'detail/:id', component: DetailComponent ,canActivate: [AuthGuard] },
   { path: 'pay', component: PayComponent ,canActivate: [AuthGuard] },
-  { path: 'login', component: loginComponent  ,canActivate: [AuthGuard] }
+  { path: 'login', component: loginComponent }
 ];
 
 @NgModule({

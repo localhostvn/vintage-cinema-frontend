@@ -20,6 +20,7 @@ import { AuthGuard } from "./guards/auth.guard";
 
 //service
 import { movie } from "./service/movie.service";
+import { loginService } from "./service/login.service";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { movie } from "./service/movie.service";
     SocialLoginModule
   ],
   providers: [movie,
+    loginService,
     AuthGuard,
      {
     provide: 'SocialAuthServiceConfig',
