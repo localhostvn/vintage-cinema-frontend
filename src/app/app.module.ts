@@ -20,6 +20,11 @@ import { AuthGuard } from "./guards/auth.guard";
 
 //service
 import { movie } from "./service/movie.service";
+import { AddphimComponent } from './page/admin/page/addphim/addphim.component';
+import { DetailphimComponent } from './page/admin/page/detailphim/detailphim.component';
+import { ListphimComponent } from './page/admin/page/listphim/listphim.component';
+import { SuatchieuComponent } from './page/admin/page/suatchieu/suatchieu.component';
+import { DashboardComponent } from './page/admin/page/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,12 @@ import { movie } from "./service/movie.service";
     HomeComponent,
     PayComponent,
     DetailComponent,
-    loginComponent
+    loginComponent,
+    AddphimComponent,
+    DetailphimComponent,
+    ListphimComponent,
+    SuatchieuComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
