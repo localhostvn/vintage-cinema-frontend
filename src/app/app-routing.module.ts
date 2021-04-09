@@ -15,8 +15,9 @@ const routes: Routes = [
   { path: 'pay', component: PayComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: loginComponent },
   { path: 'admin/film', component: DashboardComponent},
-  { path: 'admin/film/:id', component: DetailfilmComponent},
   { path: 'admin/film/add', component: AddphimComponent},
+  { path: 'admin/film/:id', component: DetailfilmComponent},
+  
 ];
 
 @NgModule({

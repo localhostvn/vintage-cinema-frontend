@@ -37,4 +37,8 @@ export class movie {
     get_pay(){
         return this.httpClient.post('http://localhost/Du%20An%202/laravel-vintagecinema/public/api/pay',{id:1,amount:100000}, { headers: new HttpHeaders({ token: ''+localStorage.getItem('currentUser') })});
     }
+    add_phim(name,point,description,duration,country,category,date_start,status,img){
+        return this.httpClient.post('http://localhost/Du%20An%202/laravel-vintagecinema/public/api/admin/movie',{name:name,point:point,description:description,duration:duration,country:country,category:category,date_start:date_start,status:status,img:img}, { headers: new HttpHeaders({ token: ''+localStorage.getItem('currentUser') })});
+    }
+
 }

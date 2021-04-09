@@ -59,61 +59,57 @@
 
     <!-- Page Content  -->
     <div id="content">
-        
 
-        <!-- <form  autocomplete="off" #detailForm="ngForm">
+
+        <form  autocomplete="off" #AddForm="ngForm">
             <div class="form-group">
                 <label for="exampleFormControlInput1">name film</label>
-                <input class="form-control" type="text" [ngModel]="date_film[0].name" name="name">
+                <input class="form-control" type="text" [ngModel] name="name">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">noi dung film</label>
-                <textarea [ngModel]="date_film[0].description" name="description" class="form-control" id="exampleFormControlTextarea1"
+                <textarea [ngModel] name="description" class="form-control" id="exampleFormControlTextarea1"
                     rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">the loai</label>
-                <input class="form-control" type="text" [ngModel]="date_film[0].category" name="category">
+                <input class="form-control" type="text" [ngModel] name="category">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">the luong</label>
-                <input class="form-control" type="datetime" [ngModel]="date_film[0].duration" name="duration">
+                <input class="form-control" type="datetime" [ngModel] name="duration">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">quoc gia</label>
-                <input class="form-control" type="datetime" [ngModel]="date_film[0].country" name="country">
+                <input class="form-control" type="datetime" [ngModel] name="country">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">diem so</label>
-                <input class="form-control" type="number" [ngModel]="date_film[0].point" name="point">
+                <input class="form-control" type="number" [ngModel] name="point">
             </div>
             <div class="form-group">
-                    <ng-container *ngIf="date_film[0].status == 0; else status">
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="customRadioInline1" name="status" class="custom-control-input" value="1" ngModel>
-                            <label class="custom-control-label" for="customRadioInline1">phim dang chieu</label>
-                          </div>
-                          <div class="custom-control custom-radio custom-control-inline">
-                            <input checked type="radio" id="customRadioInline2" name="status" class="custom-control-input" value="0" ngModel>
-                            <label class="custom-control-label" for="customRadioInline2">phim sap chieu</label>
-                          </div>
-                    </ng-container>
-                    <ng-template #status>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input checked type="radio" id="customRadioInline1" name="status" class="custom-control-input" value="1" ngModel>
-                            <label class="custom-control-label" for="customRadioInline1">phim dang chieu</label>
-                          </div>
-                          <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="customRadioInline2" name="status" class="custom-control-input" value="0" ngModel>
-                            <label class="custom-control-label" for="customRadioInline2">phim sap chieu</label>
-                          </div>
-                    </ng-template>
+                <label for="exampleFormControlSelect1">anh </label>
+                <input class="form-control" type="text" [ngModel] name="img">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Ngay Khoi Chieu</label>
+                <input class="form-control" type="date" [ngModel] name="date_start">
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input checked type="radio" id="customRadioInline1" name="status" class="custom-control-input" value="1" ngModel>
+                    <label class="custom-control-label" for="customRadioInline1">phim dang chieu</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="status" class="custom-control-input" value="0" ngModel>
+                    <label class="custom-control-label" for="customRadioInline2">phim sap chieu</label>
+                  </div>
                
             </div>
             <button [routerLink]="[ '/admin/film' ]" type="button" class="btn btn-danger">huy</button>
-            <button (click)="update_detail_film(detailForm.value)" type="button" class="btn btn-success">update</button>
-            <pre>{{ detailForm.value | json }}</pre>
-        </form> -->
+            <button (click)="add_film(AddForm.value)" type="button" class="btn btn-success">update</button>
+            <pre>{{ AddForm.value | json }}</pre>
+        </form>
 
     </div>
 </div>
