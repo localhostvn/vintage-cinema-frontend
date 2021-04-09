@@ -18,6 +18,7 @@ export class PayComponent implements OnInit {
    
   }
   ngOnInit(): void {
+    
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       direction: 'vertical',

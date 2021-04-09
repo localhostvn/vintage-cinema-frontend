@@ -7,6 +7,7 @@ import { loginComponent } from "./page/login/login.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { DashboardComponent } from "./page/admin/page/film/dashboard.component";
 import { DetailfilmComponent } from "./page/admin/page/detailfilm/detailphim.component";
+import { AddphimComponent } from "./page/admin/page/addfilm/addphim.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: loginComponent },
   { path: 'admin/film', component: DashboardComponent},
   { path: 'admin/film/:id', component: DetailfilmComponent},
+  { path: 'admin/film/add', component: AddphimComponent},
 ];
 
 @NgModule({

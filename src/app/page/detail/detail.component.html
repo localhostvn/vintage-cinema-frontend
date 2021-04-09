@@ -25,13 +25,13 @@
                     <div class="cinema">
                         <form action="">
                             <div class="box-show">
-                                <p>cinema</p>
+                                <p>Chọn Phim</p>
                                 <select (change)="choose_cinema(cinema.value)" #cinema name="" id="">
                                     <ng-container *ngIf="!data_cinema; else elseTemplate_cinema">
-                                        <option value="">Choose cinema</option>
+                                        <option value="">-------</option>
                                     </ng-container>
                                     <ng-template #elseTemplate_cinema>
-                                        <option value="">Choose cinema</option>
+                                        <option value="">-------</option>
                                         <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">
                                             {{item.name}}</option>
                                     </ng-template>
@@ -40,13 +40,13 @@
 
                             </div>
                             <div class="box-show">
-                                <p>time</p>
+                                <p>Suất Chiếu</p>
                                 <select (change)="choose_show(show.value)" #show name="" id="">
                                     <ng-container *ngIf="!data_show; else elseTemplate_show">
-                                        <option value="">Choose show</option>
+                                        <option value="">-------</option>
                                     </ng-container>
                                     <ng-template #elseTemplate_show>
-                                        <option value="">Choose show</option>
+                                        <option value="">-------</option>
                                         <option *ngFor="let item of data_show" value="{{item.id_show}}">{{item.time}}
                                         </option>
                                     </ng-template>
@@ -56,15 +56,15 @@
                         <div class="note">
                             <div class="box-note">
                                 <div class="color"></div>
-                                <div class="text">selected</div>
+                                <div class="text">Ghế bạn chọn</div>
                             </div>
                             <div class="box-note">
                                 <div class="color"></div>
-                                <div class="text">selected</div>
+                                <div class="text">Ghế trống</div>
                             </div>
                             <div class="box-note">
                                 <div class="color"></div>
-                                <div class="text">selected</div>
+                                <div class="text">Ghế đã đặt</div>
                             </div>
                         </div>
                     </div>
@@ -107,17 +107,17 @@
                     <img src="{{data_film_detail[0].img}}" alt="">
                 </div>
                 <div class="info">
-                    <p>Selected seat</p>
+                    <p>Thông tin đặt vé</p>
                     <div>
-                        <p>selection</p>
-                        <p>price</p>
+                        <p>Ghế</p>
+                        <p>Giá vé</p>
                     </div>
                     <div *ngFor="let item of id_seat">
-                        <p>Row {{item[2]}} seat {{item[1]}}</p>
+                        <p>Hàng {{item[2]}} Ghế {{item[1]}}</p>
                         <p>{{price / 1000}}.000 VND</p>
                     </div>
                     <div class="total">
-                        <p>Total</p>
+                        <p>Tạm tính</p>
                         <p *ngIf="id_seat"><span>{{(id_seat.length * price)/1000}}.000 VND</span></p>
                     </div>
                     <div>

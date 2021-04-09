@@ -14,6 +14,7 @@ import { loginComponent } from "./page/login/login.component";
 //admin
 import { DashboardComponent } from "./page/admin/page/film/dashboard.component";
 import { DetailfilmComponent } from "./page/admin/page/detailfilm/detailphim.component";
+import {AddphimComponent} from "./page/admin/page/addfilm/addphim.component";
 
 //model
 import { HttpClientModule } from "@angular/common/http";
@@ -41,7 +42,8 @@ import { loginService } from "./service/login.service";
     loginComponent,
    //admin
    DashboardComponent,
-   DetailfilmComponent
+   DetailfilmComponent,
+   AddphimComponent
   ],
   imports: [
     BrowserModule,
