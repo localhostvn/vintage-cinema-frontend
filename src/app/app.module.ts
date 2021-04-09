@@ -11,9 +11,14 @@ import { HomeComponent } from './page/home/home.component';
 import { PayComponent } from './page/pay/pay.component';
 import { DetailComponent } from './page/detail/detail.component';
 import { loginComponent } from "./page/login/login.component";
+//admin
+import { DashboardComponent } from "./page/admin/page/film/dashboard.component";
+import { DetailfilmComponent } from "./page/admin/page/detailfilm/detailphim.component";
+
 //model
 import { HttpClientModule } from "@angular/common/http";
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { FormsModule } from '@angular/forms';
 
 //gruade
 import { AuthGuard } from "./guards/auth.guard";
@@ -21,6 +26,7 @@ import { AuthGuard } from "./guards/auth.guard";
 //service
 import { movie } from "./service/movie.service";
 import { loginService } from "./service/login.service";
+
 
 @NgModule({
   declarations: [
@@ -32,13 +38,17 @@ import { loginService } from "./service/login.service";
     HomeComponent,
     PayComponent,
     DetailComponent,
-    loginComponent
+    loginComponent,
+   //admin
+   DashboardComponent,
+   DetailfilmComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule
   ],
   providers: [movie,
     loginService,

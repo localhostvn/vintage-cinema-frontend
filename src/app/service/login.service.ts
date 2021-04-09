@@ -8,7 +8,6 @@ export class loginService {
     constructor(private authService: SocialAuthService) { }
     sign_with_google() {
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-        console.log(this.authService.signIn(GoogleLoginProvider.PROVIDER_ID))
         return this.auth_state();
     }
     sign_with_facebook() {
