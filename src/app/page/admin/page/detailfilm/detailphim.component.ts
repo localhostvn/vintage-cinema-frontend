@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import  LocomotiveScroll  from "locomotive-scroll";
-import { ActivatedRoute } from '@angular/router';
+import LocomotiveScroll from "locomotive-scroll";
+import { ActivatedRoute, Router } from '@angular/router';
 import { movie } from "../../../../service/movie.service";
 import { Film } from "../../../../model/film.model";
 
@@ -11,28 +11,29 @@ import { Film } from "../../../../model/film.model";
 })
 export class DetailfilmComponent implements OnInit {
   scroll;
-  id_film:any;
-  date_film:any;
+  id_film: any;
+  date_film: any;
 
-  name:string;
-  description:string;
-  duration:string;
-  country:string;
-  date_start:any;
-  status:Number;
-  img:string;
-  constructor(private route: ActivatedRoute,private movie:movie) { }
-  update_detail_film(x){
-    console.log(x)
+  constructor(private route: ActivatedRoute, private router: Router, private movie: movie) { }
+  update_detail_film(x) {
+    this.movie.update_phim(this.id_film, x['name'], x['point'], x['description']
+      , x['duration'], x['country']
+      , x['category'], x['date_start']
+      , x['status'], x['img'])
+      .subscribe((res) => {
+        console.log(res)
+        
+        this.router.navigate(['admin/film']);
+      });
   }
 
   ngOnInit(): void {
     this.id_film = this.route.snapshot.paramMap.get('id');
-    this.movie.get_movie_where_id(this.id_film).subscribe((res)=>{
+    this.movie.get_movie_where_id(this.id_film).subscribe((res) => {
       this.date_film = res;
     });
-    
-    
+
+
 
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),

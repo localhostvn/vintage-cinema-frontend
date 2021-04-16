@@ -1,0 +1,44 @@
+<div class="wrapper warp" data-scroll-container>
+    <!-- Sidebar  -->
+    <menu-admin></menu-admin>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+
+        <form autocomplete="off" #AddForm="ngForm">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon phim</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="id_film" ngModel>
+                    <option *ngFor="let item of data_film" value="{{item.id_film}}">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon rap</label>
+                <select (change)="get_room(AddForm.value)" class="form-control" id="exampleFormControlSelect1"
+                    name="id_cinema" ngModel>
+                    <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon phong</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="id_room" ngModel>
+                    <option *ngFor="let item of data_room" value="{{item.id_room}}">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon ngay</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="id_date" ngModel>
+                    <option *ngFor="let item of data_date" value="{{item.id_date}}">{{item.date}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">nhap suat chieu</label>
+                <input type="time" class="form-control" id="exampleFormControlInput1" [(ngModel)]="time" name="time">
+            </div>
+            <button (click)="add_show(AddForm.value)" type="button" class="btn btn-success">them suat chieu</button>
+            <pre>{{ AddForm.value | json }}</pre>
+        </form>
+
+    </div>
+</div>

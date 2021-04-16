@@ -1,0 +1,30 @@
+<div class="wrapper warp" data-scroll-container>
+    <!-- Sidebar  -->
+    <menu-admin></menu-admin>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ten rap</th>
+                    <th scope="col">dia chi</th>
+                    <th scope="col">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data_cinema">
+                    <th scope="row">{{item.name}}</th>
+                    <td>{{item.address}}</td>
+                    <td>
+                        <div class="btn-group-vertical">
+                            <button type="button" class="btn btn-danger">xoa</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="wrapper warp" data-scroll-container>
+    <!-- Sidebar  -->
+    <menu-admin></menu-admin>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <form autocomplete="off" #film_cinema="ngForm">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon phim</label>
+                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="id_film" name="id_film">
+                    <option *ngFor="let item of data_film" value="{{item.id_film}}">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon rap</label>
+                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="id_cinema" name="id_cinema">
+                    <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">{{item.name}}</option>
+                </select>
+            </div>
+            <button (click)="get_show()" type="button" class="btn btn-success">Success</button>
+            <pre>{{ film_cinema.value | json }}</pre>
+        </form>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">phong</th>
+                    <th scope="col">ngay</th>
+                    <th scope="col">suat chieu</th>
+                    <th scope="col">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data_show">
+                    <th>{{item.name}}</th>
+                    <td>{{item.date}}</td>
+                    <th>{{item.time}}</th>
+                    <td>
+                        <div class="btn-group-vertical">
+                            <button [routerLink]="[ '/admin/show/update/', item.id_show ]" type="button" class="btn btn-success">update</button>
+                            <button (click)="delete_show(item.id_show)" type="button" class="btn btn-danger">xoa</button>
+                        </div>
+                    </td>
+                </tr>
+           
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

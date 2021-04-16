@@ -1,0 +1,34 @@
+<div class="wrapper warp" data-scroll-container>
+    <!-- Sidebar  -->
+    <menu-admin></menu-admin>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+
+        <form autocomplete="off" #UpdateForm="ngForm">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">chon phong</label>
+                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="id_room" name="id_room">
+                  <option *ngIf="data_show !== undefined" value="">{{data_show[0]['name']}}</option>
+                  <option *ngFor="let item of data_room" >{{item['name']}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">chon ngay</label>
+                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="id_date" name="id_date">
+                  <option *ngIf="data_show !== undefined" value="">{{data_show[0]['date']}}</option>
+                  <option *ngFor="let item of data_date" value="{{item['id_date']}}">{{item['date']}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">nhap suat chieu</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="time" name="time">
+            </div>
+            <button (click)="update_show(UpdateForm.value)" type="button" class="btn btn-success">cap nhat suat chieu</button>
+            <button type="button" class="btn btn-danger">huy</button>
+            <pre>{{ UpdateForm.value | json }}</pre>
+        </form>
+
+    </div>
+</div>

@@ -11,13 +11,13 @@ export class AddphimComponent implements OnInit {
   scroll
   constructor(private movie:movie) { }
   add_film(x){
-    this.movie.add_phim(x['name'],x['point'],x['description'],x['duration'],x['country'],x['category'],x['date_start'],x['status'],x['img'])
+    this.movie.add_phim(x['name']+"",x['point']+"",x['description']+""
+    ,x['duration']+"",x['country']+""
+    ,x['category']+"",x['date_start']+""
+    ,x['status']+"",x['img']+"")
     .subscribe((res)=>{
       console.log(res)
     });
-    
-   
-
   }
 
   ngOnInit(): void {
