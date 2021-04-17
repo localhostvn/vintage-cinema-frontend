@@ -27,11 +27,11 @@ export class DashboardComponent implements OnInit {
   }
   ngOnInit(): void {
     this.show_flim();
-
-    this.scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
+    
+    // this.scroll = new LocomotiveScroll({
+    //   el: document.querySelector('[data-scroll-container]'),
      
-    });
+    // });
   }
 
 }
