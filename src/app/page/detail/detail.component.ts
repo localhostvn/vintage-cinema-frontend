@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import LocomotiveScroll from 'locomotive-scroll';
 import { movie } from "../../service/movie.service";
 
@@ -11,7 +11,7 @@ import { movie } from "../../service/movie.service";
 export class DetailComponent implements OnInit {
   scroll: any;
   data_film_detail: any;
-  price:Number = 95000;
+  price: Number = 95000;
   id_film: any;
   id_cinema: any;
   id_date: any;
@@ -22,6 +22,7 @@ export class DetailComponent implements OnInit {
   data_show: any;
   data_row: any;
   data_seat: any;
+  data_booking: any = [];
   constructor(private movie: movie, private route: ActivatedRoute) {
 
   }
@@ -48,17 +49,17 @@ export class DetailComponent implements OnInit {
     });
     console.log(this.data_seat);
   }
-  
+
   choose_seat(event) {
     let add = true;
     for (let index = 0; index < this.id_seat.length; index++) {
-      if(this.id_seat[index][0]==event[0]){
+      if (this.id_seat[index][0] == event[0]) {
         this.id_seat.splice(this.id_seat.indexOf(index), 1);
         add = false;
         break;
       }
     }
-    if(add == true){
+    if (add == true) {
       this.id_seat.push(event);
     }
     // if (this.id_seat.indexOf(event) != -1) {
@@ -72,7 +73,19 @@ export class DetailComponent implements OnInit {
     // console.log("id_show - " + this.id_show);
     // console.log("id_seat - " + this.id_seat);
     console.log(this.id_seat);
+    this.creat_booking();
   }
+  creat_booking() {
+    this.data_booking['info_booking'] = ({
+      'id_film': this.id_film,
+      'id_cinema': this.id_cinema,
+      'id_date': this.id_date,
+      'id_show': this.id_show,
+      'id_seat': this.id_seat,
+    });
+    localStorage.setItem('info_booking',JSON.stringify(this.data_booking['info_booking']))
+  }
+
   ngOnInit(): void {
 
     this.id_film = this.route.snapshot.paramMap.get('id');

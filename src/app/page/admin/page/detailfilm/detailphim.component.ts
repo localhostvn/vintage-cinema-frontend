@@ -13,16 +13,23 @@ export class DetailfilmComponent implements OnInit {
   scroll;
   id_film: any;
   date_film: any;
-
+  description: any;
   constructor(private route: ActivatedRoute, private router: Router, private movie: movie) { }
   update_detail_film(x) {
-    this.movie.update_phim(this.id_film, x['name'], x['point'], x['description']
+
+    if (x['description'] == '') {
+      this.description = this.date_film[0]['description'];
+    }else{
+      this.description = x['description'];
+    }
+
+    this.movie.update_phim(this.id_film, x['name'], x['point'], this.description
       , x['duration'], x['country']
       , x['category'], x['date_start']
       , x['status'], x['img'])
       .subscribe((res) => {
         console.log(res)
-        
+
         this.router.navigate(['admin/film']);
       });
   }

@@ -8,6 +8,7 @@ import { movie } from "../../service/movie.service";
 })
 export class PayComponent implements OnInit {
   scroll;
+  info_user:any;
   constructor(private movie:movie) { }
   btn_pay(){
     //  location.replace('http://localhost/vingate%20cinema/back-end-vintage-cinema/public/api/pay?id=11');
@@ -18,6 +19,7 @@ export class PayComponent implements OnInit {
    
   }
   ngOnInit(): void {
+    this.info_user = JSON.parse(localStorage.getItem('currentUser'));
     
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),

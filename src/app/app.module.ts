@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuAdminComponent } from "./page/admin/block/menu/MenuAdmin.component";
+import { MenuComponent } from "./block/menu/menu.component";
 //container
 import { ContainerUserComponent } from "./container/users/user.component";
 import { ContainerAdminComponent } from "./container/admin/admin.component";
@@ -16,7 +18,7 @@ import { loginService } from "./service/login.service";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,MenuAdminComponent,MenuComponent,
     //user
     ContainerUserComponent,
     //admin

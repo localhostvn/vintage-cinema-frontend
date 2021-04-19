@@ -18,6 +18,7 @@ export class AddphimComponent implements OnInit {
     .subscribe((res)=>{
       console.log(res)
     });
+    x = null;
   }
 
   ngOnInit(): void {

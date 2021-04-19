@@ -1,44 +1,104 @@
-<div class="wrapper warp" data-scroll-container>
-    <!-- Sidebar  -->
-    <menu-admin></menu-admin>
+<div ng-controller="dangkyganmoiCtrl">
 
-    <!-- Page Content  -->
-    <div id="content">
-
-
-        <form autocomplete="off" #AddForm="ngForm">
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">chon phim</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="id_film" ngModel>
-                    <option *ngFor="let item of data_film" value="{{item.id_film}}">{{item.name}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">chon rap</label>
-                <select (change)="get_room(AddForm.value)" class="form-control" id="exampleFormControlSelect1"
-                    name="id_cinema" ngModel>
-                    <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">{{item.name}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">chon phong</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="id_room" ngModel>
-                    <option *ngFor="let item of data_room" value="{{item.id_room}}">{{item.name}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">chon ngay</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="id_date" ngModel>
-                    <option *ngFor="let item of data_date" value="{{item.id_date}}">{{item.date}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">nhap suat chieu</label>
-                <input type="time" class="form-control" id="exampleFormControlInput1" [(ngModel)]="time" name="time">
-            </div>
-            <button (click)="add_show(AddForm.value)" type="button" class="btn btn-success">them suat chieu</button>
-            <pre>{{ AddForm.value | json }}</pre>
-        </form>
-
+    <div class="intro-y flex items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            phim phim moi
+        </h2>
     </div>
+    <form autocomplete="off" #AddForm="ngForm"
+        class="ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+        <div class="grid grid-cols-12 gap-6 mt-5">
+
+            <div class="intro-y col-span-12 lg:col-span-12">
+
+                <!-- BEGIN: Multiple Item -->
+                <!-- BEGIN: Inline Form -->
+                <div class="intro-y box mt-5">
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200">
+                        <h2 class="font-medium text-base mr-auto">
+                            thong tin phim
+                        </h2>
+
+                    </div>
+                    <div class="p-5" id="inline-form">
+                        <div class="preview">
+                            <div class="mt-3">
+                                <label>chon phim <span style="color:red;font-size:20px">*</span></label>
+                                <select
+                                    class="input w-full border  mt-2 ng-pristine ng-untouched ng-valid ng-empty ng-valid-email"
+                                    id="exampleFormControlSelect1" name="id_film" ngModel>
+                                    <option value="">------</option>
+                                    <option *ngFor="let item of data_film" value="{{item.id_film}}">
+                                        {{item.name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="mt-3">
+                                <label>the rap:</label>
+                                <select
+                                    class="input w-full border  mt-2 ng-pristine ng-untouched ng-valid ng-empty ng-valid-email"
+                                    (change)="get_room(AddForm.value)" name="id_cinema" ngModel>
+                                    <option value="">------</option>
+                                    <option *ngFor="let item of data_cinema" value="{{item.id_cinema}}">
+                                        {{item.name}}</option>
+                                </select>
+
+                            </div>
+                            <div class="mt-3">
+                                <label>chon phong: <span style="color:red;font-size:20px">*</span></label>
+                                <select class="input w-full border  mt-2 ng-pristine ng-untouched ng-valid ng-empty ng-valid-email" name="id_room" ngModel>
+                                    <option value="">------</option>
+                                    <option *ngFor="let item of data_room" value="{{item.id_room}}">{{item.name}}</option>
+                                </select>
+
+                            </div>
+                            <div class="mt-3">
+                                <label>chon ngay: <span style="color:red;font-size:20px">*</span></label>
+                                <select  class="input w-full border  mt-2 ng-pristine ng-untouched ng-valid ng-empty ng-valid-email" name="id_date" ngModel>
+                                    <option value="">------</option>
+                                    <option *ngFor="let item of data_date" value="{{item.id_date}}">{{item.date}}</option>
+                                </select>
+
+                            </div>
+                            <div class="mt-3">
+                                <label>nhap suat chieu: <span style="color:red;font-size:20px">*</span></label>
+                                <input type="time" class="input w-full border  mt-2 ng-pristine ng-untouched ng-valid ng-empty ng-valid-email" [(ngModel)]="time" name="time">
+
+                            </div>
+
+
+
+                            <div class="flex justify-end mt-4">
+                                <button type="button" [routerLink]="[ '/admin/film' ]"
+                                    class="text-theme-6 flex items-center"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-trash-2 w-4 h-4 mr-1">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path>
+                                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                                    </svg> Nhập lại </button>
+                                <button (click)="add_show(AddForm.value)"
+                                    class="button w-20 bg-theme-1 text-white ml-auto ng-hide">them</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END: Inline Form -->
+                <!-- END: Multiple Item -->
+
+            </div>
+
+
+            <!-- END: Fade Animation -->
+        </div>
+
+        <pre>{{ AddForm.value | json }}</pre>
+    </form>
 </div>

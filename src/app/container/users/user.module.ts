@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from "./user-routing.module";
 //component
-import { MenuComponent } from '../../block/menu/menu.component';
+
 import { BookComponent } from '../../block/book/book.component';
 import { ShapeComponent } from '../../block/shape/shape.component';
 import { FooterComponent } from '../../block/footer/footer.component';
@@ -17,7 +17,7 @@ import { loginComponent } from "../../page/login/login.component";
         PayComponent,
         DetailComponent,
         loginComponent,
-        MenuComponent,
+       
         BookComponent,
         ShapeComponent,
         FooterComponent
