@@ -1,1 +1,7 @@
 @import url("https://locomotivemtl.github.io/locomotive-scroll/dist/styles/main.css");
+.c-scrollbar{
+    display: none;
+}
+.c-scrollbar:first-child{
+    display: block;
+}
