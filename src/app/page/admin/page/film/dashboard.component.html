@@ -1,6 +1,6 @@
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Tra cứu tiền nước
+        List Phim
     </h2>
     
     </div>
@@ -53,12 +53,12 @@
                 <thead>
                     <tr>
     
-                        <th class="border-b-2 text-right whitespace-no-wrap">phim </th>
-                        <th class="border-b-2 text-right whitespace-no-wrap">trang thai</th>
+                        <th class="border-b-2 text-right whitespace-no-wrap">Phim </th>
+                        <th class="border-b-2 text-right whitespace-no-wrap">Trạng thái</th>
     
-                        <th class="border-b-2 text-right whitespace-no-wrap">the loai</th>
-                        <th class="border-b-2 text-right whitespace-no-wrap">quoc gia</th>
-                        <th class="border-b-2 text-right whitespace-no-wrap">action</th>
+                        <th class="border-b-2 text-right whitespace-no-wrap">Thể loại</th>
+                        <th class="border-b-2 text-right whitespace-no-wrap">Quốc gia</th>
+                        <th class="border-b-2 text-right whitespace-no-wrap">Action</th>
     
                     </tr>
                 </thead>
@@ -75,7 +75,7 @@
                                 {{item.name}}
                             </a>
                         </td>
-                        <td class="text-right border-b w-32">phim dang chieu</td>
+                        <td class="text-right border-b w-32">Phim đang chiếu</td>
                         <td class="text-right border-b w-32">{{item.category}}</td>
                         <td class="text-right border-b w-32">{{item.country}}</td>
                         <td class="text-right border-b w-32 font-medium"><button (click)="delete_flim(item.id_film)" class="button w-48 inline-block mr-1 mb-2 bg-theme-6 text-white inline-flex items-center">xoa

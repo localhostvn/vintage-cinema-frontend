@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class movie {
     token;
     headers;
-    domain = 'http://localhost/vingate%20cinema/back-end-vintage-cinema';
+    domain = 'http://localhost/Du%20An%202/laravel-vintagecinema';
 
     constructor(private httpClient: HttpClient) {
          this.headers = new HttpHeaders({ token: ''+localStorage.getItem('currentUser') });
