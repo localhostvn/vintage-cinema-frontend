@@ -5,12 +5,15 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
     providedIn: 'root'
 })
 export class movie {
-    token;
+    token = 'null';
     headers;
-    domain = 'http://localhost/Du%20An%202/laravel-vintagecinema';
+    domain = 'http://localhost/vingate%20cinema/back-end-vintage-cinema';
 
     constructor(private httpClient: HttpClient) {
-         this.headers = new HttpHeaders({ token: ''+localStorage.getItem('currentUser') });
+        if(localStorage.getItem('currentUser')){
+            this.token = JSON.parse(localStorage.getItem('currentUser'));
+        }
+        this.headers = new HttpHeaders({ token: '' + this.token['token'] });
      }
     get_movie_all() {
         return this.httpClient.get(this.domain+'/public/api/movie/all', {headers:this.headers});
@@ -39,8 +42,13 @@ export class movie {
     get_seat(id_show){
         return this.httpClient.get(this.domain+'/public/api/seat/'+id_show, {headers:this.headers});
     }
-    get_pay(){
-        return this.httpClient.post(this.domain+'/public/api/pay',{id:1,amount:100000}, {headers:this.headers});
+    get_pay(price){
+        return this.httpClient.post(this.domain+'/public/api/pay',{id:1,price:price}, {headers:this.headers});
+    }
+    pay_return(id_cinema,id_film,id_seat,id_user,code,id_show){
+        return this.httpClient.post(this.domain+'/public/api/pay_return',
+        {id_cinema:id_cinema,id_film:id_film,id_seat:id_seat,id_user:id_user,code:code,id_show:id_show}, 
+        {headers:this.headers});
     }
     add_phim(name,point,description,duration,country,category,date_start,status,img){
         return this.httpClient.post(this.domain+'/public/api/admin/movie',

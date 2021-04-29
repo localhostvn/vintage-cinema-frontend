@@ -6,10 +6,11 @@ import { UserRoutingModule } from "./user-routing.module";
 import { BookComponent } from '../../block/book/book.component';
 import { ShapeComponent } from '../../block/shape/shape.component';
 import { FooterComponent } from '../../block/footer/footer.component';
-import { HomeComponent } from '../../page/home/home.component';
-import { PayComponent } from '../../page/pay/pay.component';
-import { DetailComponent } from '../../page/detail/detail.component';
-import { loginComponent } from "../../page/login/login.component";
+import { HomeComponent } from '../../page/user/home/home.component';
+import { PayComponent } from '../../page/user/pay/pay.component';
+import { DetailComponent } from '../../page/user/detail/detail.component';
+import { loginComponent } from "../../page/user/login/login.component";
+import { QrComponent } from "../../page/user/qr/qr.component";
 
 @NgModule({
     declarations: [
@@ -17,10 +18,10 @@ import { loginComponent } from "../../page/login/login.component";
         PayComponent,
         DetailComponent,
         loginComponent,
-       
         BookComponent,
         ShapeComponent,
-        FooterComponent
+        FooterComponent,
+        QrComponent
     ],
     imports: [ CommonModule ,UserRoutingModule],
     exports: [],

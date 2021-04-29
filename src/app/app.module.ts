@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 //gruade
 import { AuthGuard } from "./guards/auth.guard";
+import { admin_AuthGuard } from "./guards/admin_auth.guard";
 //service
 import { movie } from "./service/movie.service";
 import { loginService } from "./service/login.service";
@@ -35,6 +36,7 @@ import { loginService } from "./service/login.service";
     movie,
     loginService,
     AuthGuard,
+    admin_AuthGuard,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

@@ -1,0 +1,16 @@
+.warp-qr{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px gray;
+}
+.container img{
+    width: 300px;
+}

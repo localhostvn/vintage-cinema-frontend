@@ -25,33 +25,16 @@
                         <p>Giá vé</p>
                         <p>Suất chiếu</p>
                     </div>
-                    <div>
-                        <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
-                        <p>Row A - Seat 13</p>
-                        <p>45.000 VND</p>
+                    <div *ngFor="let item of data_booking">
+                        <p>{{item.name}}</p>
+                        <p>Row {{item.name_row}} - Seat {{item.name_seat}}</p>
+                        <p>{{item.price}} VND</p>
                         <p>11:20</p>
                     </div>
-                    <div>
-                        <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
-                        <p>Row A - Seat 13</p>
-                        <p>45.000 VND</p>
-                        <p>11:20</p>
-                    </div>
-                    <div>
-                        <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
-                        <p>Row A - Seat 13</p>
-                        <p>45.000 VND</p>
-                        <p>11:20</p>
-                    </div>
-                    <div>
-                        <p>CHỊ MƯỜI BA: 3 NGÀY SINH TỬ</p>
-                        <p>Row A - Seat 13</p>
-                        <p>45.000 VND</p>
-                        <p>11:20</p>
-                    </div>
+
                     <div class="total">
                         <p>Tổng tiền :</p>
-                        <p>300.000 VND</p>
+                        <p>{{all_price}} VND</p>
                     </div>
                 </div>
                 <div class="pay-method">

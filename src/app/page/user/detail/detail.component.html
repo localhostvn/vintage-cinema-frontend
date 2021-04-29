@@ -3,18 +3,22 @@
     <section  class="section-detail">
         <div class="container">
             <div class="movie">
-                <div class="name">
-                    {{data_film_detail[0].name}}
-                </div>
-                <div class="content">
-                    {{data_film_detail[0].description}}
-                </div>
-                <div class="info">
-                    <p><span>IMDb</span> {{data_film_detail[0].point}} </p>
-                    <p>{{data_film_detail[0].duration}}</p>
-                    <p>{{data_film_detail[0].category}}</p>
-                    <p>{{data_film_detail[0]["date-start"]}}</p>
-                </div>
+                <ng-container *ngFor="let item of data_film_detail">
+                    <div class="name">
+                        {{item.name}}
+                    </div>
+                    <div class="content">
+                        {{item.description}}
+                    </div>
+                    <div class="info">
+                        <p><span>IMDb</span> {{item.point}} </p>
+                        <p>{{item.duration}}</p>
+                        <p>{{item.category}}</p>
+                        <p>{{item.date_start}}</p>
+                    </div>
+                </ng-container>
+                
+
                 <div class="show-setup">
                     <div class="date">
                         <div *ngFor="let item of data_date" (click)="choose_date(item.id_date)">
@@ -103,8 +107,8 @@
                 </div>
             </div>
             <div class="poster">
-                <div class="box-img">
-                    <img src="{{data_film_detail[0].img}}" alt="">
+                <div *ngFor="let item of data_film_detail" class="box-img">
+                    <img src="{{item.img}}" alt="">
                 </div>
                 <div class="info">
                     <p>Thông tin đặt vé</p>
@@ -112,13 +116,13 @@
                         <p>Ghế</p>
                         <p>Giá vé</p>
                     </div>
-                    <div *ngFor="let item of id_seat">
-                        <p>Hàng {{item[2]}} Ghế {{item[1]}}</p>
+                    <div *ngFor="let item of data_booking">
+                        <p>Hàng {{item.name_row}} Ghế {{item.name_seat}}</p>
                         <p>{{price / 1000}}.000 VND</p>
                     </div>
                     <div class="total">
                         <p>Tạm tính</p>
-                        <p *ngIf="id_seat"><span>{{(id_seat.length * price)/1000}}.000 VND</span></p>
+                        <p *ngIf="id_seat"><span>{{(data_booking.length * price)/1000}}.000 VND</span></p>
                     </div>
                     <div>
                         <a href="/pay">Thanh toán</a>

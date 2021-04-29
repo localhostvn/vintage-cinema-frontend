@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Data } from '@angular/router';
+import { Data , ActivatedRoute} from '@angular/router';
 import LocomotiveScroll from 'locomotive-scroll';
-import { movie } from "../../service/movie.service";
+import { movie } from "../../../service/movie.service";
 
 @Component({
   selector: 'page-home',
@@ -13,13 +13,15 @@ export class HomeComponent implements OnInit {
   data_nowshowing: any;
   data_commingsoon: any;
 
-  constructor(private movie: movie) {
+  constructor(private movie: movie, private rote:ActivatedRoute) {
 
   }
 
 
 
   ngOnInit(): void {
+    console.log(this.rote.snapshot.queryParams)
+
     this.movie.get_movie_nowshowing().subscribe((data) => {
       this.data_nowshowing = data;
     });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import LocomotiveScroll from 'locomotive-scroll';
-import { movie } from "../../service/movie.service";
+import { movie } from "../../../service/movie.service";
 
 @Component({
   selector: 'page-detail',
@@ -12,10 +12,10 @@ export class DetailComponent implements OnInit {
   scroll: any;
   data_film_detail: any;
   price: Number = 95000;
-  id_film: any;
-  id_cinema: any;
+  id_film: Number;
+  id_cinema: Number;
   id_date: any;
-  id_show: any;
+  id_show: Number;
   id_seat: any = [];
   data_date: any;
   data_cinema: any;
@@ -29,66 +29,72 @@ export class DetailComponent implements OnInit {
   choose_date(id) {
     this.movie.get_cinema().subscribe((res) => {
       this.data_cinema = res;
+      console.log(id)
+      console.log(this.id_film)
       this.id_date = id;
     });
   }
   choose_cinema(event) {
-    this.id_cinema = event;
+    this.id_cinema = parseInt(event);
     this.movie.get_show(this.id_film, this.id_cinema, this.id_date).subscribe((res) => {
       this.data_show = res;
       console.log(this.data_show);
     });
   }
   choose_show(event) {
-    this.id_show = event;
+    this.id_show = parseInt(event);
     this.movie.get_row(this.id_show).subscribe((res) => {
       this.data_row = res;
     });
     this.movie.get_seat(this.id_show).subscribe((res) => {
       this.data_seat = res;
     });
-    console.log(this.data_seat);
+    this.movie.get_show_where_id(event).subscribe((res)=>{
+      console.log(res);
+    })
+    console.log(event);
   }
 
   choose_seat(event) {
+   
+   
+    this.creat_booking(event);
+    console.log(this.data_booking);
+  }
+  creat_booking(event) {
+    
+
+    
     let add = true;
-    for (let index = 0; index < this.id_seat.length; index++) {
-      if (this.id_seat[index][0] == event[0]) {
-        this.id_seat.splice(this.id_seat.indexOf(index), 1);
-        add = false;
-        break;
+    for (let index = 0; index < this.data_booking.length; index++) {
+      if(this.data_booking[index]['id_seat'] == event[0]){
+          this.data_booking.splice(this.data_booking.indexOf(index),1);
+          add = false;
+          break;
       }
     }
-    if (add == true) {
-      this.id_seat.push(event);
+    if(add == true){
+      this.data_booking.push({
+        'id_film': this.id_film,
+        'name':this.data_film_detail[0]['name'],
+        'id_cinema': this.id_cinema,
+        'id_date': this.id_date,
+        'id_show': this.id_show,
+        'id_seat': event[0],
+        'name_seat': event[1],
+        'name_row': event[2],
+        'price': this.price,
+      });
     }
-    // if (this.id_seat.indexOf(event) != -1) {
-    //   this.id_seat.splice(this.id_seat.indexOf(event), 1);
-    // } else {
-    //   this.id_seat.push(event);
-    // }
-    // console.log("id_film - " + this.id_film);
-    // console.log("id_cinema - " + this.id_cinema);
-    // console.log("id_date - " + this.id_date);
-    // console.log("id_show - " + this.id_show);
-    // console.log("id_seat - " + this.id_seat);
-    console.log(this.id_seat);
-    this.creat_booking();
-  }
-  creat_booking() {
-    this.data_booking['info_booking'] = ({
-      'id_film': this.id_film,
-      'id_cinema': this.id_cinema,
-      'id_date': this.id_date,
-      'id_show': this.id_show,
-      'id_seat': this.id_seat,
-    });
-    localStorage.setItem('info_booking',JSON.stringify(this.data_booking['info_booking']))
+
+
+   
+    localStorage.setItem('info_booking',JSON.stringify(this.data_booking))
   }
 
   ngOnInit(): void {
 
-    this.id_film = this.route.snapshot.paramMap.get('id');
+    this.id_film = parseInt(this.route.snapshot.paramMap.get('id'));
     this.movie.get_movie_where_id(this.id_film).subscribe((res) => {
       this.data_film_detail = res;
       console.log(this.data_film_detail);

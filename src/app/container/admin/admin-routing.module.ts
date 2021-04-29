@@ -14,13 +14,13 @@ import { AuthGuard } from "../../guards/auth.guard";
 
 const routes: Routes = [
     { path: '', component: DashboardComponent },
-    { path: 'film', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'film/add', component: AddphimComponent, canActivate: [AuthGuard] },
-  { path: 'film/:id', component: DetailfilmComponent, canActivate: [AuthGuard] },
-  { path: 'cinema', component: AdminCinemaComponent, canActivate: [AuthGuard] },
-  { path: 'show', component: AdminShowComponent, canActivate: [AuthGuard] },
-  { path: 'show/add', component: AdminAddShowComponent, canActivate: [AuthGuard] },
-  { path: 'show/update/:id', component: UpdateShowComponent, canActivate: [AuthGuard] },
+    { path: 'film', component: DashboardComponent,  },
+  { path: 'film/add', component: AddphimComponent,  },
+  { path: 'film/:id', component: DetailfilmComponent,  },
+  { path: 'cinema', component: AdminCinemaComponent,  },
+  { path: 'show', component: AdminShowComponent,  },
+  { path: 'show/add', component: AdminAddShowComponent,  },
+  { path: 'show/update/:id', component: UpdateShowComponent,  },
 ];
 
 @NgModule({
