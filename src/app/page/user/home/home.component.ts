@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       // console.log('ngAfterViewInit')
       this.scroll.update()
-    }, 500);
+    }, 1500);
   }
   ngAfterViewChecked(): void {
     // console.log('ngAfterViewChecked')

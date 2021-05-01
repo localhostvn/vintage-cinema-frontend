@@ -23,25 +23,34 @@ export class DetailComponent implements OnInit {
   data_row: any;
   data_seat: any;
   data_booking: any = [];
+  isloading:boolean = false;
   constructor(private movie: movie, private route: ActivatedRoute) {
 
   }
+
   choose_date(id) {
+
+
+    this.isloading = true;
     this.movie.get_cinema().subscribe((res) => {
       this.data_cinema = res;
       console.log(id)
       console.log(this.id_film)
       this.id_date = id;
+      this.isloading = false;
     });
   }
   choose_cinema(event) {
+    this.isloading = true;
     this.id_cinema = parseInt(event);
     this.movie.get_show(this.id_film, this.id_cinema, this.id_date).subscribe((res) => {
       this.data_show = res;
+      this.isloading = false;
       console.log(this.data_show);
     });
   }
   choose_show(event) {
+    this.isloading = true;
     this.id_show = parseInt(event);
     this.movie.get_row(this.id_show).subscribe((res) => {
       this.data_row = res;
@@ -49,9 +58,11 @@ export class DetailComponent implements OnInit {
     this.movie.get_seat(this.id_show).subscribe((res) => {
       this.data_seat = res;
     });
-    this.movie.get_show_where_id(event).subscribe((res)=>{
-      console.log(res);
-    })
+    // this.movie.get_show_where_id(event).subscribe((res)=>{
+    //   console.log(res);
+    //   this.isloading = false;
+    // })
+    this.isloading = false;
     console.log(event);
   }
 
@@ -62,8 +73,7 @@ export class DetailComponent implements OnInit {
     console.log(this.data_booking);
   }
   creat_booking(event) {
-    
-
+   
     
     let add = true;
     for (let index = 0; index < this.data_booking.length; index++) {
@@ -90,9 +100,12 @@ export class DetailComponent implements OnInit {
 
    
     localStorage.setItem('info_booking',JSON.stringify(this.data_booking))
+    
   }
 
   ngOnInit(): void {
+    
+
 
     this.id_film = parseInt(this.route.snapshot.paramMap.get('id'));
     this.movie.get_movie_where_id(this.id_film).subscribe((res) => {
@@ -113,11 +126,15 @@ export class DetailComponent implements OnInit {
         }
       }
       console.log(this.data_date);
+      
     });
 
 
   }
   ngAfterViewInit(): void {
+    
+    
+
     this.scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       direction: 'vertical',

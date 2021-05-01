@@ -1,6 +1,18 @@
+<div *ngIf="isloading == true" class="loading">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 
 <div class="warp warp-detail" id="js-scroll" data-scroll-container>
-    <section  class="section-detail">
+    <section class="section-detail">
         <div class="container">
             <div class="movie">
                 <ng-container *ngFor="let item of data_film_detail">
@@ -17,11 +29,12 @@
                         <p>{{item.date_start}}</p>
                     </div>
                 </ng-container>
-                
+
 
                 <div class="show-setup">
                     <div class="date">
                         <div *ngFor="let item of data_date" (click)="choose_date(item.id_date)">
+                            <input class="date_checked" type="radio" name="a">
                             <p>{{item.date}}</p>
                             <span>{{item.day}}</span>
                         </div>
@@ -29,7 +42,7 @@
                     <div class="cinema">
                         <form action="">
                             <div class="box-show">
-                                <p>Chọn Phim</p>
+                                <p>Chọn rạp Phim</p>
                                 <select (change)="choose_cinema(cinema.value)" #cinema name="" id="">
                                     <ng-container *ngIf="!data_cinema; else elseTemplate_cinema">
                                         <option value="">-------</option>
@@ -75,7 +88,7 @@
                     <div class="seat">
                         <div class="row">
                             <ng-container *ngIf="!data_show; else elseTemplate_row">
-                                
+
                             </ng-container>
                             <ng-template #elseTemplate_row>
                                 <div *ngFor="let item of data_row">{{item.name}}</div>
@@ -92,15 +105,17 @@
                                         </ng-container>
                                         <ng-template #elseTemplate_checked>
                                             <div>
-                                                <input (click)="choose_seat([item_seat['id_seat'],item_seat['name'],item['name']])" #seat type="checkbox" value="{{item_seat['id_seat']}}">
+                                                <input
+                                                    (click)="choose_seat([item_seat['id_seat'],item_seat['name'],item['name']])"
+                                                    #seat type="checkbox" value="{{item_seat['id_seat']}}">
                                             </div>
                                         </ng-template>
                                     </ng-container>
                                     <ng-template #elseTemplate_seat>
-                                        
+
                                     </ng-template>
                                 </ng-container>
-                                
+
                             </div>
                         </div>
                     </div>
